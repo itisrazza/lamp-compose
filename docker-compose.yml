@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  web:
+    image: php:apache
+    volumes:
+      - ./html:/var/www/html
+      # - ./conf/apache2:/etc/apache2
+    ports:
+      - "8080:80"
+    
+  db:
+    image: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+    
+  pma:
+    image: phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: password
+
