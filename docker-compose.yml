@@ -2,7 +2,8 @@ version: "3"
 
 services:
   web:
-    image: php:apache
+    build:
+      dockerfile: web.dockerfile
     volumes:
       - ./html:/var/www/html
       # - ./conf/apache2:/etc/apache2
